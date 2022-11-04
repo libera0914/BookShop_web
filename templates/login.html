@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" type="text/css" href="static/css/Login.css"/>
+    <title>login in </title>
+</head>
+<body>
+      <div id="login"> 
+        <h1>Login</h1>
+        <form method="POST" action="/login"> 
+            <input type="text" required="required" placeholder="user" name="user"> 
+            <input type="password" required="required" placeholder="password" name="password">
+            <button class="but" type="submit">login</button>
+            <p style="color: red">{{ result}}</p> 
+    </div>
+
+</body>
+</html>
+

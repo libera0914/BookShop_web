@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="static/css/com.css"/>
+</head>
+<body>
+<div>
+<ul class="nav nav-tabs" style="background-color: #e55b00" >
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="/">Logout</a></li>
+    <img src="static/css/1.png" width="30px" height="30px" align="right" ><li>
+</ul>
+</div>
+<script type="text/javascript" src="/static/js/newFile.js"></script>
+    <script type='text/javascript'>
+			function change() {
+  				var value = document.getElementById('range').value ;
+  				document.getElementById('value').innerHTML = value;
+			}
+
+	</script>
+    <script type='text/javascript'>
+			function change1() {
+  				var value = document.getElementById('range1').value ;
+  				document.getElementById('value1').innerHTML = value;
+			}
+
+	</script>
+    <script type='text/javascript'>
+			function change2() {
+  				var value = document.getElementById('range2').value ;
+  				document.getElementById('value2').innerHTML = value;
+			}
+
+	</script>
+    <script>
+            document.getElementById('file').onchange = function() {
+                var imgFile = this.files[0];
+                var fr = new FileReader();
+                fr.onload = function() {
+                    document.getElementById('image').getElementsByTagName('img')[0].src = fr.result;
+                };
+                fr.readAsDataURL(imgFile);
+            };
+
+    </script>
+      <script>
+            document.getElementById('file').addEventListener('change', function(){
+            var fd = new FormData();
+                for(var i = 0; i<this.files.length; i++){
+            var file = this.files[i];
+            fd.append("upload_file"+i, file);
+            }
+            uploadFile(fd);
+            }
+
+
+    </script>
+<div id="my_dialog"  >
+        <form action="/add" method="post" enctype="multipart/form-data">
+            <table>
+            <tr >
+                <td >
+                    <p align="left">bookname<a style="color:red">*</a></p>
+                </td>
+                <td>
+                    <input type="text"   id="bookname" name = "bookname" align="right"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p align="left">author<a style="color:red">*</a></p>
+                </td>
+                <td>
+                    <input type="text" align="right" name="author"  id="author" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>create_time<a style="color:red">*</a></p>
+                </td>
+                <td>
+                     <input type="date"  name = "create_time" value=""/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>ISBN-13<a style="color:red">*</a></p>
+                </td>
+                <td>
+                    <input type="text" name = "ISBN-13" id="isbn" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>describe</p>
+                </td>
+                <td>
+                    <textarea rows="10"  name="describe" cols="22">
+                    </textarea>
+                </td>
+            </tr>
+                <tr>
+                <td>
+                    <p>saleprice(0-100)<a style="color:red">*</a></p>
+                </td>
+                <td align="left">
+                    <input  id="range2" type="range" min="0" max="100" name="saleprice" value="5"step="1" oninput="change2()" onchange="change2()">
+		            <span id="value2">0</span>
+                </td>
+            </tr>
+                <tr>
+                <td>
+                    <p>retailprice (0-100)<a style="color:red">*</a></p>
+                </td>
+                <td align="left">
+                   <input  id="range" type="range" min="0" max="100" name="retailprice" value="5"step="1" oninput="change()" onchange="change()">
+		            <span id="value">0</span>
+                </td>
+            </tr><tr>
+                <td>
+                    <p>count(0-20)<a style="color:red">*</a></p>
+                </td>
+                <td align="left">
+                    <input  id="range1" type="range" min="0" max="100"  name="count" value="5"step="1" oninput="change1()" onchange="change1()">
+		            <span id="value1">0</span>
+                </td>
+            </tr>
+                <tr>
+
+                    <td>
+
+                        <p>picture<a style="color:red">*</a></p>
+                    </td>
+                <td align="right">
+
+                <input type="file" name="file" id="file" data-max_size="1000000" accept="image/*"  >
+
+                </td>
+
+            </tr>
+
+         </table>
+         <div >
+
+             <button  class="my-btn-blue" style="width:100px;height:20px" >save</button>
+         </div>
+         </form>
+         <a href="./admin.html"><button  class="my-btn-gray"  style="width:100px;height:20px" >back</button></a>>
+</div>
+</body>
+</html>

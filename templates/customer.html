@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="static/css/com.css"/>
+    <title>Customer index</title>
+
+    <script>
+            function changeValue(obj)
+                {
+                if(obj.value=="Add")
+                {
+                obj.value="Added";
+                }
+                else
+                {
+                obj.value="Add";
+                }
+                }
+        </script>
+      <script>
+          function
+          down(id){
+          var
+          url = "/record"
+          var request = new XMLHttpRequest();
+          request.open("POST", url);
+          request.send( id)  }
+  </script>
+
+    <link rel="stylesheet" href="/static/css/newFile.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="static/css/com.css"/>
+</head>
+<body>
+<ul class="nav nav-tabs" style="background-color: #e55b00" >
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="/">Logout</a></li>
+    <img src="static/css/1.png" width="30px" height="30px" align="right" ><li>
+</ul>
+    <p >User:{{name}}</p>
+     <a href="/car" > <button> shopping car</button></a>
+     <table align="center" width="1000">
+        {% for j in res %}
+        <tr >
+            {% for i in j %}
+                <td width="250">
+                    <p  align="center"><img  src={{i[2]}}  height="100" width="100"   /></p>
+                    <h3  align="center">{{i[0]}}</h3>
+                    <p  align="center">${{i[4]}}</p>
+                     <p align="center" ><input align="center" type="button" id="{{i[3]}}" value="Add" onmousedown= "down(id)" onclick="changeValue(this)"/></p>
+
+                </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+     </table>
+</body>
+</html>

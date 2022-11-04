@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shopping</title>
+	<link rel="stylesheet" type="text/css" href="static/css/com.css"/>
+    <link rel="stylesheet" href="/static/css/newFile.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery-ui.min.css" />
+      <script>
+          function
+          down(id){
+          var
+          url = "/delcar"
+          var request = new XMLHttpRequest();
+          request.open("POST", url);
+          request.send( id)  }
+  </script>
+      <script>
+          function
+          del(name){
+          var
+          url = "/delcount"
+          var request = new XMLHttpRequest();
+          request.open("POST", url);
+          request.send( name)  }
+  </script>
+      <script>
+          function
+          add(name){
+          var
+          url = "/addcount"
+          var request = new XMLHttpRequest();
+          request.open("POST", url);
+          request.send( name)  }
+  </script>
+      <script>
+          function
+          clear1(){
+          var url = "/clear"
+          var request = new XMLHttpRequest();
+          request.open("POST", url);
+          request.send()  }
+  </script>
+
+<body>
+    <a href="/login" ><button> back</button></a>
+    		<div class="car" align="center">
+			{% for i in res %}
+			<div>
+				<table width=100% height="20%">
+				<tr>
+					<td align="center" width=10%>
+						{{i[0]}}
+					</td>
+					<td align="center" width=20%>
+						{{i[1][0]}}
+					</td>
+					<td width=10%>
+						<img src="{{i[1][1]}}">
+					</td>
+					<td align="center" width=20%>
+						{{i[1][2]}}
+					</td>
+					<td width=20% align="center">
+						<a href="car"><input align="center" type="button" value="del" name="{{i[3]}}"  onmousedown="del(name)" ></a>{{i[2]}}<a href="car"><input name="{{i[3]}}" align="center" type="button" value="add" onmousedown="add(name)"></a>
+					</td>
+					<td width=30% align="center">
+						<a href="./car">
+							<input align="center" type="button" id="{{i[3]}}" onmousedown="down(id)"
+							value="del">
+						</a>
+					</td>
+				</tr>
+			</table>
+			</div>
+			{% endfor %}
+			<div >
+				<table width=60% height="20%"><tr><td width=560></td><td width=20%>all：{{a}}</td></tr></table>
+			</div>
+			<div >
+				<table width=60% height="20%">
+					<tr>
+						<td width=50%>
+							<a href="apply"><input class="btn2" type="button"  value="confirm" >
+
+								</input></a>
+						</td>
+						<td>
+							<a href="car">
+								<input align="center" type="button" value="clear" onmousedown="clear1()">
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+
+
+</body>
+</html>
